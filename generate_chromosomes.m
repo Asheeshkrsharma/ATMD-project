@@ -1,0 +1,13 @@
+function chrome = generate_chromosomes(num)
+%Input num: Number of chromosomes to generate
+%**********************Mission Time frame (Since epoch)********************
+dt0 = (1498-108).*rand(num,1) + 108; %Time frame for completing transit orbit 1; leo1->EROS [days] Min 108 max 1498
+dt1 = (1500-92).*rand(num,1) + 92; %Time frame for completing transit orbit 2; EROS->leo2 [days] Min 92 max 1500
+a_c_leo1=(6.763353215358037E+03-2.063997893546698E+02).*rand(num,1) + 2.063997893546698E+02; %Semi-major axis, a (km) for circular orbits, it is the radius
+nu_c_leo1=rad2deg((2*pi).*rand(num,1)); %True anomaly, nu (rad)
+a_c_leo2=(6.763353215358037E+03-2.063997893546698E+02).*rand(num,1) + 2.063997893546698E+02; %Semi-major axis, a (km) for circular orbits, it is the radius
+nu_c_leo2=rad2deg((2*pi).*rand(num,1)); %True anomaly, nu (rad)
+incl_c_leo1=rad2deg((pi/2).*rand(num,1)); %Inclination w.r.t XY-plane, i (rad)  
+incl_c_leo2=rad2deg((pi/2).*rand(num,1)); %Inclination w.r.t XY-plane, i (rad)  
+chrome=[dt0 dt1 a_c_leo1 nu_c_leo1 a_c_leo2 nu_c_leo2 incl_c_leo1 incl_c_leo2];
+end
